@@ -58,7 +58,7 @@ usuário e uma senha para este usuário. ATENÇÃO, **não será mostrado **
 **nenhum caractere ao digitar a senha**. É assim mesmo, digite a senha e
 pressione a tecla *ENTER*.
 
-É boa prática manter o sistema operacional atualizado. Para temos que
+É uma boa prática manter o sistema operacional atualizado. Para temos que
 atualizar a lista de pacotes, baixar e instalar as atualizações dos
 programas instalados. Para realizar esta tarefa iremos utilizar o **apt**
 (*Advanced Packaging Tool*), gerenciador de pacotes do Ubuntu.
