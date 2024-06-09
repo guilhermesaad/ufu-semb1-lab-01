@@ -53,10 +53,10 @@ uma distribuição diferente será necessário adaptar as instruções fornecida
 ```console
 PS > wsl --install -d Ubuntu-20.04
 ```
-Quando a instalação terminar será solicitado que você escolha um nome de
-usuário e uma senha para este usuário. ATENÇÃO, **não será mostrado **
-**nenhum caractere ao digitar a senha**. É assim mesmo, digite a senha e
-pressione a tecla *ENTER*.
+Você deverá reiniciar seu dispositivo, caso solicitado. Quando a instalação terminar
+será solicitado que você escolha um nome de usuário e uma senha para este usuário. 
+ATENÇÃO, **não será mostrado ** **nenhum caractere ao digitar a senha**. É assim mesmo,
+digite a senha e pressione a tecla *ENTER*.
 
 É uma boa prática manter o sistema operacional atualizado. Para temos que
 atualizar a lista de pacotes, baixar e instalar as atualizações dos
@@ -108,8 +108,8 @@ para nossas atividades de laboratório.
 ### 5.1 Acesso do sistema de arquivos do Linux no Windows Explorer
 
 Em algumas situações pode ser necessário acessar algum arquivo do Linux 
-utilizando algum aplicativo Windows ou você queira explorar o sistema de
-arquivos Linux de forma gráfica. Para as situações como a descrita podemos
+utilizando algum aplicativo Windows, ou, caso você queira explorar o sistema de
+arquivos Linux de forma gráfica. Para as situações como a descrita, podemos
 montar o sistema de arquivos do Linux como um ***drive*** de rede.
 
 Para montar o sistema de arquivos do Linux abra uma nova janela do Windows
@@ -161,7 +161,7 @@ Caso sua vesão do kernel seja inferior à requerida abra o *PowerShell* como
 administrador e execute o comando **wsl --update**.
 
 Para compartilhar dispositivos USB a partir do Windows precisamos instalar o
-servidor do  USB/IP, o **USBIP-WIN**, disponível em [2]. Faça o download e 
+servidor do  USB/IP, o **USBIP-WIN**, disponível em [3]. Faça o download e 
 execute o arquivo ***usbipd-win_x.msi***. Ao final do processo de instalação teremos
 
 * um serviço chamado *usbipd* (USBIP Device Host);
