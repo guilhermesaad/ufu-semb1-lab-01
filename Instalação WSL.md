@@ -14,8 +14,8 @@ Instalar e configurar o Ubuntu 20.04 no Windows Subsystem for Linux 2 (WSL2).
 
 Este documento assume que você esteja utilizando o Windows 10 versão 2004 ou
 superior (Build 19041 ou superior) ou o Windows 11. Caso esteja utilizando uma
-versão mais antiga do Windows 10 é recomendavél que você faça a atualização.
-Caso não seja possível você ainda poderá instalar o WSL, consulte a referência
+versão mais antiga do Windows 10 é recomendável que você faça a atualização.
+Caso não seja possível, você ainda poderá instalar o WSL, consulte a referência
 [2].
 
 ## 3 - Referências
@@ -48,7 +48,7 @@ PS > wsl --list --online
 
 Em seguida, instale a distribuição desejada usando **wsl --install -d <Distro>**.
 Neste curso será utilizada a distribuição **Ubuntu 20.04 LTS**. Caso opte por
-uma distribuição diferente será necessário adaptar as instruções fornecidas.
+uma distribuição diferente, será necessário adaptar as instruções fornecidas.
 
 ```console
 PS > wsl --install -d Ubuntu-20.04
@@ -65,8 +65,8 @@ programas instalados. Para realizar esta tarefa iremos utilizar o **apt**
 
 Os sistemas operacionais baseados no Unix, dos quais o Linux faz parte, têm a
 capacidade de definir de forma detalhada os direitos de acesso aos arquivos,
-dispositivos e recursos do sistema operacional. Para atualizar o sistema é
-necessário direitos de super-usuário (administrador).
+dispositivos e recursos do sistema operacional. Para atualizar o sistema são
+necessários direitos de super-usuário (administrador).
 
 Para executar programas e comandos com direitos de acesso de super-usuário
 podemos utilizar o comando **sudo**, que significa *super user do!*. As linhas
@@ -79,7 +79,7 @@ foo@bar$ sudo apt upgrade
 ```
 
 O *apt* executa com direitos de acesso de super-usuário logo será solicitada
-a senha de administrador, criada logo após o a instalação do Ubuntu.
+a senha de administrador, criada logo após a instalação do Ubuntu.
 
 Antes de iniciarmos a instalação das ferramentas necessárias para configuração
 do ambiente de desenvolvimento vamos criar um diretório para salvarmos os
@@ -136,14 +136,14 @@ para gravar um *firmware* no kit de desenvolvimento *STM32F411 Blackpill*.
 
 ### 5.1. Instalação do USBIP no WSL2
 
-O suporte à dispositivos USB não é nativo no WSL, é utilizado um sistema de
-compartilhamento de dispositivos USB através de uma rede IP denominado USB/IP
+O suporte a dispositivos USB não é nativo no WSL, é utilizado um sistema de
+compartilhamento de dispositivos USB por meio de uma rede IP denominado USB/IP
 ou *USB over IP*. Com o USB/IP é possível compartilhar um dispositivo USB,
 seja ele uma câmera, um HD externo, mouse, impressora, ou qualquer outro
 dispositivo utilizando uma rede IP.
 
 O USB/IP abstrai uma conexão USB em um dispositivo genérico (servidor) e a
-partir daí transmite os pacotes de dados USB pra outro computador (cliente)
+partir daí transmite os pacotes de dados USB para outro computador (cliente)
 via rede. O cliente pode montar seu próprio *USB device* e utilizar os pacotes
 de dados USB que recebe via rede.
 
@@ -157,16 +157,16 @@ foo@bar$ uname -a
 
 ![Ubuntu terminal](images/ubuntu-uname.jpg "Ubuntu terminal")
 
-Caso sua vesão do kernel seja inferior à requerida abra o *PowerShell* como
+Caso sua versão do kernel seja inferior à requerida abra o *PowerShell* como
 administrador e execute o comando **wsl --update**.
 
 Para compartilhar dispositivos USB a partir do Windows precisamos instalar o
-servidor do  USB/IP, o **USBIP-WIN**, disponível em [2]. Faça o download e 
+servidor do USB/IP, o **USBIP-WIN**, disponível em [2]. Faça o download e 
 execute o arquivo ***usbipd-win_x.msi***. Ao final do processo de instalação teremos
 
 * um serviço chamado *usbipd* (USBIP Device Host);
 * uma ferramenta de linha de comando chamada *usbipd*;
-* uma regra de *firewall* para permitir que todas as subredes locais conectem ao
+* uma regra de *firewall* para permitir que todas as sub redes locais conectem ao
 serviço *usbipd*.
 
 Após instalar o servidor no Windows devemos instalar o cliente USB/IP e o banco
@@ -194,7 +194,7 @@ foo@bar$ sudo update-alternatives --install /usr/local/bin/usbip usbip /usr/lib/
 
 ![Ubuntu terminal](images/lab-01-linux-tools-01.jpg "Ubuntu terminal")
 
-Para maiores informações sobre a ferramenta **update-alternatives**
+Para mais informações sobre a ferramenta **update-alternatives**
 
 ```console
 foo@bar$ man update-alternatives
@@ -225,8 +225,8 @@ PS >  usbipd wsl list
 
 ![Windows PowerShell](images/usbipd-list.jpg "Windows PowerShell")
 
-Como podemos observar o gravador ST-LINK possui o **BUSID** 3-3. É importante
-ressaltar que o **BUSID** pode mudar de acordo com a porta utilizada para
+Como podemos observar, o gravador ST-LINK possui o **BUSID** 3-3. É importante
+ressaltar que o **BUSID** pode mudar conforme a porta utilizada para
 conectar o **ST-LINK**.
 
 De posse do **BUSID** podemos conectar o gravador ST-LINK ao WSL. Para isso
@@ -262,7 +262,7 @@ foo@bar$ ls -l /dev/bus/usb/001/003
 
 ![Ubuntu terminal](images/ubuntu-usb-perm.jpg "Ubuntu terminal")
 
-De acordo com a resposta ao comando *ls* este arquivo pertence ao grupo **root**
+Segundo a resposta ao comando *ls* este arquivo pertence ao grupo **root**
 e ao usuário **root**. Os direitos de acesso a este arquivo são detalhados pelo
 conjunto caracteres ```crw-------```. O primeiro caractere indica a natureza do
 arquivo que pode ser
@@ -309,7 +309,7 @@ foo@bar$ cd semb1-workspace/lab-01
 foo@bar$ sudo cp config/udev/rules.d/49-stlink* /etc/udev/rules.d
 ```
 
-Reinicie o servço **udev** e recarregue as regras
+Reinicie o serviço **udev** e recarregue as regras
 
 ```console
 foo@bar$ sudo service udev restart
@@ -332,7 +332,7 @@ Conecte novamente o ST-LINK ao WSL
 PS >  usbipd wsl attach --busid 3-3
 ```
 
-vá até o terminal do Ubuntu e verifique os direitos de acesso ao dispostivo.
+Vá até o terminal do Ubuntu e verifique os direitos de acesso ao dispositivo.
 Observe que o número de dispositivo vinculado ao ST-LINK mudou. Agora ele está
 disponível no **BUS 001** e **Device 004**.
 
@@ -343,8 +343,8 @@ foo@bar$ ls -l /dev/bus/usb/001/004
 
 ![Ubuntu terminal](images/ubuntu-usb-perm-new.jpg "Ubuntu terminal")
 
-Como pôde notar os direitos de acesso foram alterados de forma que qualquer
-usuário tenha acesso a leitura e escrita no dispositivo ST-LINK.
+Como pôde notar, os direitos de acesso foram alterados de forma que qualquer
+usuário tenha acesso à leitura e escrita no dispositivo ST-LINK.
 
 Conecte o programador **ST-LINK**, sem nada conectado a ele, e execute o
 seguinte comando
@@ -354,7 +354,7 @@ foo@bar$ lsusb
 foo@bar$ ls -l /dev/bus/usb/001/004
 ```
 
-Caso o sistema tenha sido configurado corretamente você deverá obter uma
+Caso o sistema tenha sido configurado corretamente, você deverá obter uma
 resposta como a da figura abaixo
 
 ![Ubuntu terminal](images/ubuntu-st-info-probe.jpg "Ubuntu terminal")
